@@ -79,52 +79,6 @@ const ramos = [
   { semestre: 9, id: "PER2346", nombre: "PROYECTO DE TÍTULO", prerequisitos: ["PER2342"] },
   { semestre: 9, id: "PER2347", nombre: "PRÁCTICA PROFESIONAL", prerequisitos: [] }
 ];
-
-const estadoRamos = JSON.parse(localStorage.getItem("estadoRamos")) || {};
-
-function crearMalla() {
-  const container = document.getElementById("malla-container");
-  container.innerHTML = "";
-
-  const semestres = [...new Set(ramos.map(r => r.semestre))];
-  semestres.forEach(sem => {
-    const div = document.createElement("div");
-    div.classList.add("semestre");
-
-    const titulo = document.createElement("h3");
-    titulo.textContent = `Semestre ${sem}`;
-    div.appendChild(titulo);
-
-    ramos.filter(r => r.semestre === sem).forEach(ramo => {
-      const btn = document.createElement("div");
-      btn.textContent = `${ramo.id} - ${ramo.nombre}`;
-      btn.classList.add("ramo");
-
-      const prereqCumplido = ramo.prerequisitos.every(p => estadoRamos[p]);
-
-      if (!prereqCumplido && ramo.prerequisitos.length > 0) {
-        btn.classList.add("bloqueado");
-      } else if (estadoRamos[ramo.id]) {
-        btn.classList.add("aprobado");
-      } else {
-        btn.classList.add("no-aprobado");
-      }
-
-      btn.onclick = () => {
-        if (btn.classList.contains("bloqueado")) return;
-        estadoRamos[ramo.id] = !estadoRamos[ramo.id];
-        localStorage.setItem("estadoRamos", JSON.stringify(estadoRamos));
-        crearMalla();
-      };
-
-      div.appendChild(btn);
-    });
-
-    container.appendChild(div);
-  });
-}
-
-crearMalla();
 // script.js
 
 const ramos = [
