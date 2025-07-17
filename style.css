@@ -1,1 +1,43 @@
+body {
+  font-family: sans-serif;
+  padding: 20px;
+  background: #f4f4f4;
+}
+
+.semestre {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background: white;
+}
+
+.semestre h3 {
+  margin-top: 0;
+}
+
+.ramo {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  user-select: none;
+}
+
+.no-aprobado {
+  background-color: purple;
+}
+
+.aprobado {
+  background-color: plum;
+  text-decoration: line-through;
+}
+
+.bloqueado {
+  background-color: grey;
+  cursor: not-allowed;
+}
 
