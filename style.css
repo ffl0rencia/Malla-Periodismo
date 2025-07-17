@@ -2,6 +2,8 @@ body {
   font-family: sans-serif;
   padding: 20px;
   background: #f4f4f4;
+  max-width: 900px;
+  margin: auto;
 }
 
 .semestre {
@@ -14,17 +16,21 @@ body {
 
 .semestre h3 {
   margin-top: 0;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
 }
 
 .ramo {
-  display: inline-block;
-  padding: 10px 15px;
-  margin: 5px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
   border-radius: 8px;
   color: white;
   cursor: pointer;
   font-weight: bold;
   user-select: none;
+  text-align: left;
 }
 
 .no-aprobado {
@@ -39,5 +45,16 @@ body {
 .bloqueado {
   background-color: grey;
   cursor: not-allowed;
+}
+
+button {
+  background-color: #ff5050;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
