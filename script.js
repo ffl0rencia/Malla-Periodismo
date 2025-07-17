@@ -81,9 +81,11 @@ const ramos = [
 const estadoRamos = JSON.parse(localStorage.getItem("estadoRamos")) || {};
 
 function crearMalla() {
-  const container = document.getElementById("grid-malla");
-  container.innerHTML = "";
-
+  const filaSuperior = document.getElementById("fila-superior");
+const filaInferior = document.getElementById("fila-inferior");
+filaSuperior.innerHTML = "";
+filaInferior.innerHTML = "";
+  
   const semestres = [...new Set(ramos.map(r => r.semestre))];
   semestres.forEach(sem => {
     const div = document.createElement("div");
@@ -118,7 +120,11 @@ function crearMalla() {
       div.appendChild(btn);
     });
 
-    container.appendChild(div);
+    if ([1, 2, 3, 4].includes(sem)) {
+  filaSuperior.appendChild(div);
+} else {
+  filaInferior.appendChild(div);
+}
   });
 }
 
